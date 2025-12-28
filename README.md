@@ -1,19 +1,19 @@
 # yet-another-portfolio-optimizer
-Full stack app for optimizing portfolio allocations using ML-based return estimation and mean-variance optimization
+Full‑stack app for optimizing portfolio allocations using ML‑based return estimation and mean–variance optimization.
 
 ---
 
 ## What's this about?
-This project implements an end-to-end system that does the following:
-- Fetches real-time market data
+This project implements an end-to-end system that:
+- Fetches market data
 - Estimates expected asset returns using machine learning
 - Models portfolio risk using shrinkage covariance estimation
-- Solves a constrained convex optimization problem
-- Displays optimal asset allocations via a web app
+- Solves a constrained mean–variance optimization problem
+- Displays optimal allocations in a web UI
 
 ---
 
-## Tech Stack
+## Tech stack
 
 ### Backend
 - Python
@@ -35,43 +35,49 @@ React UI
 ↓  
 Axios (REST API)  
 ↓  
-FastAPI Backend  
+FastAPI backend  
 ↓  
-Market Data API  
+Market data API  
 ↓  
-ML Return Estimation  
+ML return estimation  
 ↓  
-Covariance Modeling  
+Covariance modeling  
 ↓  
-Portfolio Optimization
+Portfolio optimization
 
 ---
 
-## Optimization Model
+## Optimization model
+We solve a mean–variance problem (fully invested, long‑only):
 
-The portfolio is constructed by solving a mean–variance optimization problem:
+$$
+\\max_{\\mathbf{w}}\\; \\mathbf{w}^\\top \\boldsymbol{\\mu} - \\lambda\\, \\mathbf{w}^\\top \\boldsymbol{\\Sigma}\\, \\mathbf{w}
+$$
 
-\[
-\max_{\mathbf{w}} \;
-\mathbf{w}^\top \boldsymbol{\mu}
--
-\lambda \, \mathbf{w}^\top \boldsymbol{\Sigma} \mathbf{w}
-\]
+Subject to:
+- \\(\\mathbf{1}^\\top \\mathbf{w} = 1\\) (fully invested)
+- \\(\\mathbf{w} \\ge 0\\) (long only)
 
-subject to a fully invested, long-only portfolio.  
-The risk aversion parameter \( \lambda \) controls the trade-off between expected return and risk.
+Here, \\(\\boldsymbol{\\mu}\\) is the expected return vector, \\(\\boldsymbol{\\Sigma}\\) is the covariance matrix, and \\(\\lambda\\) is the risk‑aversion parameter.
 
 ---
 
 ## Running the code
 
 ### Backend
+Run the FastAPI app locally with reload:
+
 ```bash
 uvicorn app.main:app --reload
 ```
 
 ### Frontend
+Install dependencies and start the Vite dev server:
+
 ```bash
 npm install
 npm run dev
 ```
+
+---
+
