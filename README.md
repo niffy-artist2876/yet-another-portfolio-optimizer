@@ -47,18 +47,37 @@ Portfolio optimization
 
 ---
 
-## Optimization model
-We solve a mean–variance problem (fully invested, long‑only):
+## Optimization Model
 
-$$
-\\max_{\\mathbf{w}}\\; \\mathbf{w}^\\top \\boldsymbol{\\mu} - \\lambda\\, \\mathbf{w}^\\top \\boldsymbol{\\Sigma}\\, \\mathbf{w}
-$$
+The portfolio construction problem is formulated using classical mean–variance theory.
 
-Subject to:
-- \\(\\mathbf{1}^\\top \\mathbf{w} = 1\\) (fully invested)
-- \\(\\mathbf{w} \\ge 0\\) (long only)
+We seek portfolio weights \( \mathbf{w} \in \mathbb{R}^n \) that maximize expected return while penalizing risk:
 
-Here, \\(\\boldsymbol{\\mu}\\) is the expected return vector, \\(\\boldsymbol{\\Sigma}\\) is the covariance matrix, and \\(\\lambda\\) is the risk‑aversion parameter.
+\[
+\max_{\mathbf{w}} \quad
+\mathbf{w}^\top \boldsymbol{\mu}
+-
+\lambda \, \mathbf{w}^\top \boldsymbol{\Sigma} \mathbf{w}
+\]
+
+Subject to the constraints:
+
+\[
+\sum_{i=1}^{n} w_i = 1
+\quad \text{(fully invested portfolio)}
+\]
+
+\[
+w_i \ge 0 \quad \forall i
+\quad \text{(long-only constraint)}
+\]
+
+where:
+- \( \boldsymbol{\mu} \) is the vector of expected asset returns
+- \( \boldsymbol{\Sigma} \) is the return covariance matrix
+- \( \lambda \ge 0 \) is the risk-aversion parameter controlling the trade-off between return and risk
+
+This formulation yields a convex quadratic optimization problem, which can be solved efficiently using standard convex solvers.
 
 ---
 
