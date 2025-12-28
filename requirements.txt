@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+
+numpy
+pandas
+scikit-learn
+
+cvxpy
+ecos
+
+yfinance
+
+python-dotenv
