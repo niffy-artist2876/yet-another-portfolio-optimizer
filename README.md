@@ -3,8 +3,8 @@ Full stack app for optimizing portfolio allocations using ML-based return estima
 
 ---
 
-##What's this about?
-This project implements an end-to-end system thatdoes the following:
+## What's this about?
+This project implements an end-to-end system that does the following:
 - Fetches real-time market data
 - Estimates expected asset returns using machine learning
 - Models portfolio risk using shrinkage covariance estimation
@@ -13,16 +13,16 @@ This project implements an end-to-end system thatdoes the following:
 
 ---
 
-##Tech Stack
+## Tech Stack
 
-###Backend
+### Backend
 - Python
 - FastAPI
 - numpy
 - cvxpy
 - scikit-learn
 
-###Frontend
+### Frontend
 - React (Vite)
 - Axios
 - Framer Motion
@@ -30,28 +30,29 @@ This project implements an end-to-end system thatdoes the following:
 
 ---
 
-##Architecture
-React UI
-↓
-Axios (REST API)
-↓
-FastAPI Backend
-↓
-Market Data API
-↓
-ML Return Estimation
-↓
-Covariance Modeling
-↓
+## Architecture
+React UI  
+↓  
+Axios (REST API)  
+↓  
+FastAPI Backend  
+↓  
+Market Data API  
+↓  
+ML Return Estimation  
+↓  
+Covariance Modeling  
+↓  
 Portfolio Optimization
 
 ---
 
-##Optimization Model
+## Optimization Model
 The optimization problem is formulated as:
-\[
-\max_w \; \mu^T w - \lambda w^T \Sigma w
-\]
+
+$$
+\max_w \; \mu^\top w - \lambda\, w^\top \Sigma\, w
+$$
 
 Subject to:
 - Fully invested portfolio
@@ -59,15 +60,15 @@ Subject to:
 
 ---
 
-##Running the code
+## Running the code
 
-###Backend
-```
+### Backend
+```bash
 uvicorn app.main:app --reload
 ```
 
-###Frontend
-```
+### Frontend
+```bash
 npm install
 npm run dev
 ```
