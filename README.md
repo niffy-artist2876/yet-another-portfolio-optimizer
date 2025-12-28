@@ -47,37 +47,28 @@ Portfolio optimization
 
 ---
 
-## Optimization Model
+### Optimization Model
 
-The portfolio construction problem is formulated using classical mean–variance theory.
+The portfolio construction problem follows classical mean–variance theory.
 
-We seek portfolio weights \( \mathbf{w} \in \mathbb{R}^n \) that maximize expected return while penalizing risk:
+We solve the following optimization problem:
 
-\[
-\max_{\mathbf{w}} \quad
-\mathbf{w}^\top \boldsymbol{\mu}
--
-\lambda \, \mathbf{w}^\top \boldsymbol{\Sigma} \mathbf{w}
-\]
+Maximize:
 
-Subject to the constraints:
+    wᵀ μ − λ wᵀ Σ w
 
-\[
-\sum_{i=1}^{n} w_i = 1
-\quad \text{(fully invested portfolio)}
-\]
+Subject to:
 
-\[
-w_i \ge 0 \quad \forall i
-\quad \text{(long-only constraint)}
-\]
+    ∑ wᵢ = 1        (fully invested portfolio)
+    wᵢ ≥ 0 ∀ i      (long-only constraint)
 
-where:
-- \( \boldsymbol{\mu} \) is the vector of expected asset returns
-- \( \boldsymbol{\Sigma} \) is the return covariance matrix
-- \( \lambda \ge 0 \) is the risk-aversion parameter controlling the trade-off between return and risk
+Where:
+- μ is the vector of expected asset returns  
+- Σ is the return covariance matrix  
+- λ ≥ 0 controls the trade-off between return and risk  
 
-This formulation yields a convex quadratic optimization problem, which can be solved efficiently using standard convex solvers.
+This formulation results in a convex quadratic optimization problem.
+
 
 ---
 
