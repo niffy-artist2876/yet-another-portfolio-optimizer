@@ -48,15 +48,18 @@ Portfolio Optimization
 ---
 
 ## Optimization Model
-The optimization problem is formulated as:
 
-$$
-\max_w \; \mu^\top w - \lambda\, w^\top \Sigma\, w
-$$
+The portfolio is constructed by solving a mean–variance optimization problem:
 
-Subject to:
-- Fully invested portfolio
-- No short selling
+\[
+\max_{\mathbf{w}} \;
+\mathbf{w}^\top \boldsymbol{\mu}
+-
+\lambda \, \mathbf{w}^\top \boldsymbol{\Sigma} \mathbf{w}
+\]
+
+subject to a fully invested, long-only portfolio.  
+The risk aversion parameter \( \lambda \) controls the trade-off between expected return and risk.
 
 ---
 
