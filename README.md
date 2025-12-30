@@ -37,7 +37,7 @@ Axios (REST API)
 ↓  
 FastAPI backend  
 ↓  
-Market data API  
+Market data API (yfinance)
 ↓  
 ML return estimation  
 ↓  
