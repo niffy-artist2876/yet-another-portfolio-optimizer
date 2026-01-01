@@ -25,7 +25,6 @@ This project implements an end-to-end system that:
 ### Frontend
 - React (Vite)
 - Axios
-- Framer Motion
 - CSS
 
 ---
